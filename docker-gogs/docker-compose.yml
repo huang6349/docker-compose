@@ -7,9 +7,8 @@ networks:
 
 services:
   gogs:
-    container_name: gogs
     image: gogs/gogs:0.12.3
-    restart: always
+    container_name: gogs
     ports:
       - '10080:3000'
       - '10022:22'
@@ -17,3 +16,4 @@ services:
       - 'TZ=Asia/Shanghai'
     volumes:
       - $PWD/data:/data
+    restart: unless-stopped

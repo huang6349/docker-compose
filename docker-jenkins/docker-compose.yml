@@ -7,12 +7,14 @@ networks:
 
 services:
   jenkins:
-    container_name: jenkins
     image: jenkinsci/blueocean:1.24.6
-    restart: always
+    container_name: jenkins
     ports:
-      - 50000:50000
-      - 8080:8080
+      - '50000:50000'
+      - '8080:8080'
+    environment:
+      - 'TZ=Asia/Shanghai'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - $PWD/data:/var/jenkins_home
+    restart: unless-stopped
