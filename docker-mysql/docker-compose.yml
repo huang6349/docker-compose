@@ -1,0 +1,22 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: mysql
+
+services:
+  mysql:
+    image: mysql:8.0.25
+    container_name: mysql
+    command: ['mysqld', '--lower_case_table_names=1']
+    security_opt:
+      - 'seccomp:unconfined'
+    ports:
+      - '5386:3306'
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=123456'
+      - 'TZ=Asia/Shanghai'
+    volumes:
+      - $PWD/data:/var/lib/mysql
+    restart: unless-stopped
