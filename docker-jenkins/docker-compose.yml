@@ -15,6 +15,6 @@ services:
     environment:
       - 'TZ=Asia/Shanghai'
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - $PWD/data:/var/jenkins_home
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '$PWD/data:/var/jenkins_home'
     restart: unless-stopped
