@@ -10,8 +10,8 @@ services:
     image: gogs/gogs:0.12.3
     container_name: gogs
     ports:
-      - '10080:3000'
-      - '10022:22'
+      - '5380:3000'
+      - '5322:22'
     environment:
       - 'TZ=Asia/Shanghai'
     volumes:
