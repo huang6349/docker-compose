@@ -6,12 +6,11 @@ networks:
       name: qwerty
 
 services:
-  gogs:
-    image: gogs/gogs:0.12.3
-    container_name: gogs
+  spug:
+    image: openspug/spug:3.0.1-beta.3
+    container_name: spug
     ports:
-      - '5380:3000'
-      - '5322:22'
+      - '5580:80'
     environment:
       - 'TZ=Asia/Shanghai'
     volumes:

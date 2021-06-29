@@ -3,10 +3,10 @@ version: '3.3'
 networks:
   default:
     external:
-      name: mysql
+      name: qwerty
 
 services:
-  mysql:
+  db:
     image: mysql:8.0.25
     container_name: mysql
     command: ['mysqld', '--lower_case_table_names=1']

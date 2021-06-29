@@ -3,7 +3,7 @@ version: '3.3'
 networks:
   default:
     external:
-      name: gogs
+      name: qwerty
 
 services:
   drone-runner:
