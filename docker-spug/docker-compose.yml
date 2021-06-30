@@ -14,5 +14,6 @@ services:
     environment:
       - 'TZ=Asia/Shanghai'
     volumes:
+      - '$PWD/environment:/environment'
       - '$PWD/data:/data'
     restart: unless-stopped

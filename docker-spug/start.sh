@@ -2,6 +2,7 @@
 
 mkdir -p $PWD/data
 
+chmod -R 777 $PWD/environment
 chmod -R 777 $PWD/data
 
 echo "移除旧的容器和镜像"
