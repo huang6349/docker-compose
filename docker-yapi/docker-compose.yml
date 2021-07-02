@@ -10,10 +10,10 @@ services:
     image: jayfong/yapi:1.9.2
     container_name: yapi
     ports:
-      - '40001:3000'
+      - '5480:3000'
     environment:
-      - 'YAPI_ADMIN_ACCOUNT=huangyalong@027jinqiao.com'
-      - 'YAPI_ADMIN_PASSWORD=jqkj@2021'
+      - 'YAPI_ADMIN_ACCOUNT=252683858@qq.com'
+      - 'YAPI_ADMIN_PASSWORD=123456'
       - 'YAPI_CLOSE_REGISTER=true'
       - 'YAPI_DB_SERVERNAME=mongo'
       - 'YAPI_DB_PORT=27017'
@@ -22,18 +22,4 @@ services:
       - 'YAPI_LDAP_LOGIN_ENABLE=false'
       - 'YAPI_PLUGINS=[]'
       - 'TZ=Asia/Shanghai'
-    depends_on:
-      - mongo
-    links:
-      - mongo
-    restart: unless-stopped
-  mongo:
-    image: mongo:4.4.6
-    container_name: mongo
-    environment:
-      - 'TZ=Asia/Shanghai'
-    volumes:
-      - '$PWD/data/db:/data/db'
-    expose:
-      - 27017
     restart: unless-stopped
