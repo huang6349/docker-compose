@@ -7,7 +7,7 @@ networks:
 
 services:
   spug:
-    image: openspug/spug:3.0.1-beta.3
+    image: openspug/spug:3.0.1-beta.4
     container_name: spug
     ports:
       - '5580:80'
