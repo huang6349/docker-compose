@@ -1,0 +1,20 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: qwerty
+
+services:
+  gogs:
+    image: idoop/zentao:15.2
+    container_name: zentao
+    ports:
+      - '5680:80'
+    environment:
+      - 'SMTP_HOST=smtp.exmail.qq.com:163.177.90.125'
+      - 'BIND_ADDRESS=false'
+      - 'TZ=Asia/Shanghai'
+    volumes:
+      - '$PWD/data:/opt/zbox'
+    restart: unless-stopped
