@@ -10,7 +10,7 @@ services:
     image: jayfong/yapi:1.9.2
     container_name: yapi
     ports:
-      - '5480:3000'
+      - '5780:3000'
     environment:
       - 'YAPI_ADMIN_ACCOUNT=252683858@qq.com'
       - 'YAPI_ADMIN_PASSWORD=123456'
