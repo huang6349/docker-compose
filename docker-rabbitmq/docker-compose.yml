@@ -1,0 +1,19 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: qwerty
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.9.11-management
+    container_name: rabbitmq
+    ports:
+      - '15672:15672'
+      - '5672:5672'
+    environment:
+      - 'TZ=Asia/Shanghai'
+    volumes:
+      - '$PWD/data:/var/lib/rabbitmq'
+    restart: unless-stopped

@@ -6,10 +6,10 @@ networks:
       name: qwerty
 
 services:
-  db:
+  mysql:
     image: mysql:8.0.25
     container_name: mysql
-    command: ['mysqld', '--lower_case_table_names=1']
+    command: [ 'mysqld', '--lower_case_table_names=1' ]
     security_opt:
       - 'seccomp:unconfined'
     ports:

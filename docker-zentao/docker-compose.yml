@@ -6,7 +6,7 @@ networks:
       name: qwerty
 
 services:
-  gogs:
+  zentao:
     image: idoop/zentao:15.2
     container_name: zentao
     ports:

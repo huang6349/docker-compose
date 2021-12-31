@@ -6,7 +6,7 @@ networks:
       name: qwerty
 
 services:
-  gogs:
+  zfile:
     image: zhaojun1998/zfile:3.2
     container_name: zfile
     ports:

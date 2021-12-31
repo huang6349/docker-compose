@@ -1,0 +1,27 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: qwerty
+
+services:
+  jpress:
+    image: fuhai/jpress:v4.2.0
+    container_name: jpress
+    ports:
+      - '80:8080'
+    environment:
+      - 'JPRESS_DB_HOST=mysql'
+      - 'JPRESS_DB_PORT=3306'
+      - 'JPRESS_DB_NAME=jpress'
+      - 'JPRESS_DB_USER=root'
+      - 'JPRESS_DB_PASSWORD=123456'
+      - 'TZ=Asia/Shanghai'
+    volumes:
+      - '$PWD/webapp/attachment:/opt/jpress/webapp/attachment'
+      - '$PWD/webapp/addons:/opt/jpress/webapp/addons'
+      - '$PWD/webapp/WEB-INF/addons:/opt/jpress/webapp/WEB-INF/addons'
+      - '$PWD/webapp/wp-content:/opt/jpress/webapp/wp-content'
+      - '$PWD/webapp/templates/dockers:/opt/jpress/webapp/templates/dockers'
+    restart: unless-stopped
