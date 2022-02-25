@@ -1,0 +1,18 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: qwerty
+
+services:
+  nexus3:
+    image: sonatype/nexus3:3.36.0
+    container_name: nexus3
+    ports:
+      - '5980:8081'
+    environment:
+      - 'TZ=Asia/Shanghai'
+    volumes:
+      - '$PWD/data:/nexus-data'
+    restart: unless-stopped
