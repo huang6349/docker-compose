@@ -7,16 +7,15 @@ networks:
 
 services:
   zlmediakit:
-    image: panjjo/zlmediakit:1.2.6
+    image: zlmediakit/zlmediakit:Release.last
     container_name: zlmediakit
     ports:
       - '1935:1935'
-      - '5880:80'
-      - '554:554'
+      - '5080:80'
+      - '5554:554'
       - '10000:10000'
       - '10000:10000/udp'
+      - '8000:8000/udp'
     environment:
       - 'TZ=Asia/Shanghai'
-    volumes:
-      - '$PWD/data:/zlmediakit/www'
     restart: unless-stopped
