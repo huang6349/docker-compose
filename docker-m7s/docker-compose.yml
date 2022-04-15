@@ -12,12 +12,12 @@ services:
     ports:
       - '1935:1935'
       - '554:554'
-      - '5081:8081'
-      - '5082:8082'
+      - '5080:8080'
       - '5060:5060/udp'
       - '58200:58200/udp'
     environment:
       - 'TZ=Asia/Shanghai'
     volumes:
       - '$PWD/config.toml:/app/config.toml:ro'
+      - '$PWD/logs:/app/logs'
     restart: unless-stopped

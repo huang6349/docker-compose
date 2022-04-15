@@ -13,15 +13,15 @@ SampleRate = 1
 [RTMP]
 ListenAddr = ":1935"
 [GateWay]
-ListenAddr = ":8081"
-ListenAddrTLS = ":8082"
-CertFile = "server.pem"
-KeyFile = "server.key"
+ListenAddr = ":8080"
+# ListenAddrTLS = ":8082"
+# CertFile = "xxx.pem"
+# KeyFile = "xxx.key"
 [Jessica]
-#ListenAddr = ":8081"
-#ListenAddrTLS = ":8083"
-#CertFile = "xxx.cert"
-#KeyFile = "xxx.key"
+# ListenAddr = ":8081"
+# ListenAddrTLS = ":8083"
+# CertFile = "xxx.cert"
+# KeyFile = "xxx.key"
 [LogRotate]
 # 日志存储目录相对或绝对
 Path = "logs"
@@ -43,11 +43,11 @@ Window = 2
 # ts文件存放目录，m3u8会存放在上一级
 Path = "resource"
 [HDL]
-#ListenAddr = ":2020"
-#ListenAddrTLS = ":2021"
-#CertFile = "xxx.cert"
-#KeyFile = "xxx.key"
-#Reconnect = true
+# ListenAddr = ":2020"
+# ListenAddrTLS = ":2021"
+# CertFile = "xxx.cert"
+# KeyFile = "xxx.key"
+# Reconnect = true
 [HDL.AutoPullList]
 # "live/hdl" = "http://flv.bdplay.nodemedia.cn/live/bbb.flv"
 [TS]
@@ -61,7 +61,7 @@ AutoRecord  = false
 # 端口接收推流
 ListenAddr = ":554"
 Reconnect = true
-#启动后自动拉流，可以配置多个
+# 启动后自动拉流，可以配置多个
 [RTSP.AutoPullList]
 # "live/rtsp" = "rtsp://114.116.215.52:38558/sub/3"
 # "live/rtsp" = "rtsp://admin:12345678ab@42.193.7.166:9514/11"
@@ -87,6 +87,6 @@ MediaPort = 58200
 # TCPMediaPortNum = 1
 # ListenAddr = "192.168.1.120:5060"
 # 自动停止发布，当订阅者数量将为0时，延迟N秒自动断开,-1代表不断开
-AutoCloseAfter = -1
+AutoCloseAfter = 10
 # 自动拉流，如果开启，则拿到设备注册信息后，就从设备拉流
 AutoInvite = true
