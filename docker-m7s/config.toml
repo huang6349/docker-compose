@@ -80,7 +80,7 @@ Serial = "34020000002000000001"
 Realm = "3402000000"
 Expires = 3600
 # 媒体端口
-# MediaPort = 58200
+MediaPort = 58200
 # 开启TCP拉流，默认关闭
 # TCP = true
 # TCP端口数量，超过一个的话将会每个设备轮流使用，从MediaPort往下递增
