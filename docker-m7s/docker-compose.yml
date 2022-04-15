@@ -1,0 +1,22 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: qwerty
+
+services:
+  m7s:
+    image: huang6349/m7s:3.2.2
+    container_name: m7s
+    ports:
+      - '1935:1935'
+      - '554:554'
+      - '5081:8081'
+      - '5082:8082'
+      - '5060:5060/udp'
+    environment:
+      - 'TZ=Asia/Shanghai'
+    volumes:
+      - '$PWD/config.toml:/app/config.toml:ro'
+    restart: unless-stopped
