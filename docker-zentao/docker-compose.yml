@@ -7,7 +7,7 @@ networks:
 
 services:
   zentao:
-    image: idoop/zentao:16.5
+    image: idoop/zentao:15.7.1
     container_name: zentao
     ports:
       - '5680:80'
