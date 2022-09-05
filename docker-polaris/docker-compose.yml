@@ -1,0 +1,23 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: qwerty
+
+services:
+  polaris:
+    image: polarismesh/polaris-server-standalone:v1.10.0
+    container_name: polaris
+    ports:
+      - '15010:15010'
+      - '5280:8080'
+      - '5290:8090'
+      - '5291:8091'
+      - '5293:8093'
+      - '5261:8761'
+      - '5240:9000'
+      - '5250:9090'
+    environment:
+      - 'TZ=Asia/Shanghai'
+    restart: unless-stopped
