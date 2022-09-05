@@ -1,0 +1,20 @@
+version: '3.3'
+
+networks:
+  default:
+    external:
+      name: qwerty
+
+services:
+  xzs:
+    image: registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.9.0
+    container_name: xzs
+    privileged: true
+    command: [ '/usr/sbin/init' ]
+    ports:
+      - '5180:8000'
+    environment:
+      - 'TZ=Asia/Shanghai'
+    volumes:
+      - '$PWD/data:/var/lib/mysql'
+    restart: unless-stopped
