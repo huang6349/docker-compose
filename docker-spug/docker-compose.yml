@@ -1,4 +1,4 @@
-version: '3.3'
+version: "3.3"
 
 networks:
   default:
@@ -6,21 +6,38 @@ networks:
       name: qwerty
 
 services:
+  mariadb:
+    image: docker.io/mariadb:10.9.8
+    container_name: spug-db
+    command: [ "mysqld", "--lower_case_table_names=1" ]
+    security_opt:
+      - "seccomp:unconfined"
+    ports:
+      - "5586:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123456"
+      - "TZ=Asia/Shanghai"
+    volumes:
+      - "$PWD/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql:ro"
+      - "$PWD/data:/var/lib/mysql"
+    restart: unless-stopped
   spug:
     image: docker.io/openspug/spug-service:latest
     container_name: spug
     privileged: true
+    depends_on:
+      - "mariadb"
     ports:
-      - '5580:80'
+      - "5580:80"
     environment:
-      - 'MYSQL_DATABASE=spug'
-      - 'MYSQL_USER=root'
-      - 'MYSQL_PASSWORD=123456'
-      - 'MYSQL_HOST=mysql'
-      - 'MYSQL_PORT=3306'
-      - 'TZ=Asia/Shanghai'
+      - "MYSQL_DATABASE=spug"
+      - "MYSQL_USER=root"
+      - "MYSQL_PASSWORD=123456"
+      - "MYSQL_HOST=spug-db"
+      - "MYSQL_PORT=3306"
+      - "TZ=Asia/Shanghai"
     volumes:
-      - '$PWD/environment:/environment'
-      - '$PWD/repos:/data/repos'
-      - '$PWD/spug:/data/spug'
+      - "$PWD/environment:/environment"
+      - "$PWD/repos:/data/repos"
+      - "$PWD/spug:/data/spug"
     restart: unless-stopped
