@@ -7,13 +7,20 @@ networks:
 
 services:
   spug:
-    image: openspug/spug:3.0.1-beta.4
+    image: openspug/spug-service:latest
     container_name: spug
+    privileged: true
     ports:
       - '5580:80'
     environment:
+      - 'MYSQL_DATABASE=spug'
+      - 'MYSQL_USER=root'
+      - 'MYSQL_PASSWORD=123456'
+      - 'MYSQL_HOST=mysql'
+      - 'MYSQL_PORT=3306'
       - 'TZ=Asia/Shanghai'
     volumes:
       - '$PWD/environment:/environment'
-      - '$PWD/data:/data'
+      - '$PWD/repos:/data/repos'
+      - '$PWD/spug:/data/spug'
     restart: unless-stopped
