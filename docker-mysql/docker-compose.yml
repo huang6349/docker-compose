@@ -7,7 +7,7 @@ networks:
 
 services:
   mysql:
-    image: mysql:8.0.25
+    image: docker.io/mysql:8.0.34
     container_name: mysql
     command: [ 'mysqld', '--lower_case_table_names=1' ]
     security_opt:
@@ -18,5 +18,8 @@ services:
       - 'MYSQL_ROOT_PASSWORD=123456'
       - 'TZ=Asia/Shanghai'
     volumes:
+      - '$PWD/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql:ro'
+      - '$PWD/mysqld.cnf:/etc/mysql/conf.d/mysqld.cnf:ro'
       - '$PWD/data:/var/lib/mysql'
+      - '$PWD/log:/var/log/mysql'
     restart: unless-stopped
