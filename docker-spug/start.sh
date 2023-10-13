@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-
-mkdir -p $PWD/data
-
-chmod -R 777 $PWD/environment
-chmod -R 777 $PWD/data
-
-echo "移除旧的容器和镜像"
-docker-compose down
-echo "构建新的容器和镜像"
+WORKDIR=$PWD
+mkdir -p $WORKDIR/environment
+mkdir -p $WORKDIR/repos
+mkdir -p $WORKDIR/spug
+chmod -R 777 $WORKDIR/environment
+chmod -R 777 $WORKDIR/repos
+chmod -R 777 $WORKDIR/spug
 docker-compose up -d --build
