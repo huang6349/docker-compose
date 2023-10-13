@@ -7,7 +7,7 @@ networks:
 
 services:
   spug:
-    image: openspug/spug-service:latest
+    image: docker.io/openspug/spug-service:latest
     container_name: spug
     privileged: true
     ports:
