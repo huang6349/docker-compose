@@ -7,7 +7,7 @@ networks:
 
 services:
   zfile:
-    image: zhaojun1998/zfile:3.2
+    image: swr.cn-north-1.myhuaweicloud.com/zfile-dev/zfile:4.1.5
     container_name: zfile
     ports:
       - '5480:8080'
